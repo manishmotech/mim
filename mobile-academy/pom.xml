@@ -52,9 +52,19 @@
             <version>${motech.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.motechproject</groupId>
+            <artifactId>sms</artifactId>
+            <version>${motech.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.modelmapper.extensions</groupId>
             <artifactId>modelmapper-spring</artifactId>
             <version>0.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>org.motechproject.com.google.code.gson</artifactId>
+            <version>1.7.1-r029</version>
         </dependency>
     </dependencies>
 
@@ -101,6 +111,7 @@
                             org.modelmapper.internal.cglib.proxy,
                             org.modelmapper.internal.cglib.core,
                             org.modelmapper.internal.cglib.transform,
+                            org.motechproject.sms,
                             *
                         </Import-Package>
                     </instructions>
