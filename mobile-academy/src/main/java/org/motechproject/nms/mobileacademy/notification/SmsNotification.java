@@ -1,5 +1,6 @@
 package org.motechproject.nms.mobileacademy.notification;
 
+import org.joda.time.DateTime;
 import org.motechproject.event.MotechEvent;
 import org.motechproject.event.listener.annotations.MotechListener;
 import org.motechproject.nms.mobileacademy.domain.CompletionRecord;
@@ -38,8 +39,14 @@ public class SmsNotification {
 
         CompletionRecord cr = completionRecordDataService.findRecordByCallingNumber(
                 (Long) event.getParameters().get("callingNumber"));
+
         OutgoingSms outgoingSms = new OutgoingSms();
         outgoingSms.setRecipients(Arrays.asList(String.valueOf(cr.getCallingNumber())));
+        outgoingSms.setConfig("IMI");
+        outgoingSms.setDeliveryTime(DateTime.now());
+        // TODO: Need to get this from BBC
+        outgoingSms.setMessage("Course completion message");
+
         smsService.send(outgoingSms);
     }
 }
